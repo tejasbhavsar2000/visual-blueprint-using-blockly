@@ -48,7 +48,7 @@ export default function App() {
     const newXml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
     document.getElementById('generated-xml').innerText = newXml;
 
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
+    const code = Blockly.Python.workspaceToCode(workspace);
     document.getElementById('code').value = code;
   }
 
@@ -56,6 +56,7 @@ export default function App() {
     <>
       <ReactBlockly
         toolboxCategories={toolboxCategories}
+        initialXml={initialXml}
         wrapperDivClassName="fill-height"
         workspaceConfiguration={{
           grid: {
