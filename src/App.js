@@ -49,8 +49,11 @@ export default function App() {
     const newXml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
     document.getElementById('generated-xml').innerText = newXml;
 
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
-    document.getElementById('code').value = code;
+    const JavascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('code').value = JavascriptCode;
+
+    const PythonCode = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('code').value = PythonCode;
   }
 
   return (
