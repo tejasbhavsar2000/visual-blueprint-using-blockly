@@ -22,6 +22,14 @@ Blockly.Python['new_boundary_function'] = function (block) {
     return code;
 };
 
+Blockly.JavaScript['new_boundary_function'] = function (block) {
+    var text_name = block.getFieldValue('Name');
+    var statements_content = Blockly.JavaScript.statementToCode(block, 'Content');
+    // TODO: Assemble Python into code variable.
+    var code = 'def ' + text_name + '(_object,**kwargs):\n' + statements_content + '\n';
+    return code;
+};
+
 Blockly.Blocks['return'] = {
     init: function () {
         this.appendValueInput("NAME")
@@ -39,5 +47,11 @@ Blockly.Python['return'] = function (block) {
     var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = 'return ' + value_name + '\n';
+    return code;
+};
+
+Blockly.JavaScript['return']  = block =>{
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = 'return' + value_name + '\n';
     return code;
 };
