@@ -25,7 +25,7 @@ Blockly.Python['new_boundary_function'] = function (block) {
 Blockly.JavaScript['new_boundary_function'] = function (block) {
     var text_name = block.getFieldValue('Name');
     var statements_content = Blockly.JavaScript.statementToCode(block, 'Content');
-    // TODO: Assemble Python into code variable.
+    // TODO: Assemble Javascript into code variable.
     var code = 'def ' + text_name + '(_object,**kwargs):\n' + statements_content + '\n';
     return code;
 };
