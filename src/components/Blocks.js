@@ -62,7 +62,7 @@ export default function Blocks() {
   }
 
   return (
-    <>
+    <div style={{ width: "80vh", border: "solid" }}>
       <ReactBlockly
         toolboxCategories={toolboxCategories}
         wrapperDivClassName="fill-height"
@@ -77,17 +77,7 @@ export default function Blocks() {
         workspaceDidChange={workspaceDidChange}
       />
 
-      <pre id="generated-xml"></pre>
-      <textarea
-        id="Python"
-        style={{ height: "200px", width: "400px" }}
-        value=""
-      ></textarea>
-      <textarea
-        id="Javascript"
-        style={{ height: "200px", width: "400px" }}
-        value=""
-      ></textarea>
-    </>
+      <pre id="generated-xml" style={{ visibility: "hidden" }}></pre>
+    </div>
   );
 }
