@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactBlockly from "react-blockly";
 import Blockly from "blockly";
 import "blockly/python";
+import { store } from "./StateProvider";
 export default function Blocks() {
   const toolboxCategories = [
     {
@@ -50,15 +51,18 @@ export default function Blocks() {
       ],
     },
   ];
+  const { dispatch } = useContext(store);
   function workspaceDidChange(workspace) {
     const newXml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
     document.getElementById("generated-xml").innerText = newXml;
     const JavascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
-    console.log(JavascriptCode);
-    if (JavascriptCode !== "")
-      document.getElementById("Javascript").value = JavascriptCode;
+    if (JavascriptCode !== "") {
+      dispatch({ type: "SET_JAVASCRIPT", payload: JavascriptCode });
+    }
     const PythonCode = Blockly.Python.workspaceToCode(workspace);
-    if (PythonCode !== "") document.getElementById("Python").value = PythonCode;
+    if (PythonCode !== "") {
+      dispatch({ type: "SET_PYTHON", payload: PythonCode });
+    }
   }
 
   return (

@@ -1,38 +1,48 @@
 import "./App.css";
-import React from "react";
-
+import React, { useContext, useEffect } from "react";
+import Prism from "prismjs";
+import { StateProvider, store } from "./components/StateProvider";
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/components/prism-python";
 import Blocks from "./components/Blocks";
-
 export default function App() {
   return (
     <main style={{ display: "flex" }}>
-      <Blocks></Blocks>
-      <JsCode />
-      <PyCode></PyCode>
+      <StateProvider>
+        <Blocks></Blocks>
+        <JsCode />
+        <PyCode></PyCode>
+      </StateProvider>
     </main>
   );
 }
 
 export function JsCode() {
+  const { state } = useContext(store);
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [state]);
+
   return (
     <div>
-      <textarea
-        readOnly
-        id="Python"
-        style={{ height: "200px", width: "400px" }}
-        value=""
-      ></textarea>
+      <pre className="language-javascript">
+        <code>{state.javascript}</code>
+      </pre>
     </div>
   );
 }
 
 export function PyCode() {
+  const { state } = useContext(store);
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [state]);
+
   return (
-    <textarea
-      readOnly
-      id="Javascript"
-      style={{ height: "200px", width: "400px" }}
-      value=""
-    ></textarea>
+    <div>
+      <pre className="language-python">
+        <code>{state.python}</code>
+      </pre>
+    </div>
   );
 }
