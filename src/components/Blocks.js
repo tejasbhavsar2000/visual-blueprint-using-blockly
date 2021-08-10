@@ -3,6 +3,7 @@ import ReactBlockly from "react-blockly";
 import Blockly from "blockly";
 import "blockly/python";
 import { store } from "./StateProvider";
+import Styles from "../styles/Blocks.module.css";
 export default function Blocks() {
   const toolboxCategories = [
     {
@@ -66,7 +67,7 @@ export default function Blocks() {
   }
 
   return (
-    <div style={{ width: "80vh", border: "solid" }}>
+    <div className={Styles.canvas}>
       <ReactBlockly
         toolboxCategories={toolboxCategories}
         wrapperDivClassName="fill-height"
@@ -81,7 +82,12 @@ export default function Blocks() {
         workspaceDidChange={workspaceDidChange}
       />
 
-      <pre id="generated-xml" style={{ visibility: "hidden" }}></pre>
+      {
+        <pre
+          id="generated-xml"
+          style={{ visibility: "hidden", overflow: "hidden" }}
+        ></pre>
+      }
     </div>
   );
 }

@@ -1,3 +1,7 @@
 .fill-height {
   height: calc(100vh - 114px);
 }
+.main {
+  display: flex;
+  justify-content: space-evenly;
+}
