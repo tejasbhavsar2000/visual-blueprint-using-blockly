@@ -13,8 +13,9 @@ export default function PyCode() {
   }, [state]);
 
   return (
-    <div>
-      <h1>Python</h1>
+    <div className={Styles.block}>
+      <h2>Python</h2>
+
       <pre className={`language-python line-numbers ${Styles.pycode}`}>
         <code>{state.python}</code>
       </pre>

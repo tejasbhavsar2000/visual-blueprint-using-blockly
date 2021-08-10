@@ -14,8 +14,8 @@ export default function JsCode() {
   }, [state]);
 
   return (
-    <div>
-      <h1>Javascript</h1>
+    <div className={Styles.block}>
+      <h2>Javascript</h2>
       <pre className={`language-javascript line-numbers ${Styles.jscode}`}>
         <code>{state.javascript}</code>
       </pre>
