@@ -3,7 +3,7 @@ export default function Nav() {
   return (
     <nav className={Styles.navbar}>
       <h1>
-        WhiteHat <span>Sr.</span>
+        Block <span>Coder</span>
       </h1>
     </nav>
   );
