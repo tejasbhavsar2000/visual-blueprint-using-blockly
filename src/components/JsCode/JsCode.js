@@ -4,6 +4,7 @@ import Styles from "./JsCode.module.css";
 import { store } from "../StateProvider";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python";
+import "prismjs/themes/prism.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 export default function JsCode() {
@@ -13,9 +14,9 @@ export default function JsCode() {
   }, [state]);
 
   return (
-    <div className={Styles.jscode}>
+    <div>
       <h1>Javascript</h1>
-      <pre className="language-javascript line-numbers jscode">
+      <pre className={`language-javascript line-numbers ${Styles.jscode}`}>
         <code>{state.javascript}</code>
       </pre>
     </div>

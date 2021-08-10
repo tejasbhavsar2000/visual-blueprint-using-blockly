@@ -82,12 +82,10 @@ export default function Blocks() {
         workspaceDidChange={workspaceDidChange}
       />
 
-      {
-        <pre
-          id="generated-xml"
-          style={{ visibility: "hidden", overflow: "hidden" }}
-        ></pre>
-      }
+      <pre
+        id="generated-xml"
+        style={{ visibility: "hidden", overflow: "hidden" }}
+      ></pre>
     </div>
   );
 }

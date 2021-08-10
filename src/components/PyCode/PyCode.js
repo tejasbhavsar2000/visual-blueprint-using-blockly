@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Prism from "prismjs";
-import Styles from "../styles/PyCode.module.css";
-import { store } from "./StateProvider";
+import Styles from "./PyCode.module.css";
+import { store } from "../StateProvider";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
@@ -13,9 +13,9 @@ export default function PyCode() {
   }, [state]);
 
   return (
-    <div className={Styles.pycode}>
+    <div>
       <h1>Python</h1>
-      <pre className="language-python line-numbers pycode">
+      <pre className={`language-python line-numbers ${Styles.pycode}`}>
         <code>{state.python}</code>
       </pre>
     </div>

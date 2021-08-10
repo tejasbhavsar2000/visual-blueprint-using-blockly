@@ -2,6 +2,8 @@
   height: calc(100vh - 114px);
 }
 .main {
+  z-index: 0;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
