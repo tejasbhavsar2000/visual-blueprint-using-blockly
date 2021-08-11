@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactBlockly from "react-blockly";
 import Blockly from "blockly";
 import "blockly/python";
 import { store } from "./StateProvider";
 import Styles from "../styles/Blocks.module.css";
 export default function Blocks() {
+  const [initialxml, setInitailxml] = useState("");
+  const data = () => localStorage.getItem("initialxml");
   const toolboxCategories = [
     {
       name: "Logic",
@@ -55,6 +57,8 @@ export default function Blocks() {
   const { dispatch } = useContext(store);
   function workspaceDidChange(workspace) {
     const newXml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
+
+    localStorage.setItem("initialxml", newXml);
     document.getElementById("generated-xml").innerText = newXml;
     const JavascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
     if (JavascriptCode !== "") {
@@ -68,8 +72,10 @@ export default function Blocks() {
 
   return (
     <div className={Styles.canvas}>
+      {initialxml}
       <ReactBlockly
         toolboxCategories={toolboxCategories}
+        initialXml={data()}
         wrapperDivClassName="fill-height"
         workspaceConfiguration={{
           grid: {
@@ -82,10 +88,7 @@ export default function Blocks() {
         workspaceDidChange={workspaceDidChange}
       />
 
-      <pre
-        id="generated-xml"
-        style={{ visibility: "hidden", overflow: "hidden" }}
-      ></pre>
+      <pre id="generated-xml" style={{ overflow: "scroll" }}></pre>
     </div>
   );
 }
