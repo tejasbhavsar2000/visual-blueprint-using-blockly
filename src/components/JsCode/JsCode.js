@@ -7,6 +7,7 @@ import "prismjs/components/prism-python";
 import "prismjs/themes/prism.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
+import Copy from "../Copy/Copy";
 export default function JsCode() {
   const { state } = useContext(store);
   useEffect(() => {
@@ -16,7 +17,11 @@ export default function JsCode() {
   return (
     <div className={Styles.block}>
       <h2>Javascript</h2>
-      <pre className={`language-javascript line-numbers ${Styles.jscode}`}>
+      <Copy name="js" />
+      <pre
+        id="js"
+        className={`language-javascript line-numbers ${Styles.jscode}`}
+      >
         <code>{state.javascript}</code>
       </pre>
     </div>

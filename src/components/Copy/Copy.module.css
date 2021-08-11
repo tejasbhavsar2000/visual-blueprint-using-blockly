@@ -1,0 +1,10 @@
+.copy {
+  background: #dfdfdf;
+  border-radius: 0.6em;
+  opacity: 40%;
+}
+.div {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}

@@ -6,6 +6,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
+import Copy from "../Copy/Copy";
 export default function PyCode() {
   const { state } = useContext(store);
   useEffect(() => {
@@ -15,8 +16,8 @@ export default function PyCode() {
   return (
     <div className={Styles.block}>
       <h2>Python</h2>
-
-      <pre className={`language-python line-numbers ${Styles.pycode}`}>
+      <Copy name="py" />
+      <pre id="py" className={`language-python line-numbers ${Styles.pycode}`}>
         <code>{state.python}</code>
       </pre>
     </div>
