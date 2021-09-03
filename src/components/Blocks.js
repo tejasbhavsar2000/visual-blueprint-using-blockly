@@ -205,13 +205,12 @@ export default function Blocks() {
     localStorage.setItem("initialxml", newXml);
     document.getElementById("generated-xml").innerText = newXml;
     const JavascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
-    if (JavascriptCode !== "") {
-      dispatch({ type: "SET_JAVASCRIPT", payload: JavascriptCode });
-    }
+
+    dispatch({ type: "SET_JAVASCRIPT", payload: JavascriptCode });
+
     const PythonCode = Blockly.Python.workspaceToCode(workspace);
-    if (PythonCode !== "") {
-      dispatch({ type: "SET_PYTHON", payload: PythonCode });
-    }
+
+    dispatch({ type: "SET_PYTHON", payload: PythonCode });
   }
 
   return (
