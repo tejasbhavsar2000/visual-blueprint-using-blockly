@@ -2,13 +2,50 @@
   display: flex;
   background: #2d2d2d;
   color: #00b5ce;
-
   font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
-  justify-content: flex-start;
+
   padding-left: 30px;
 }
 
-span {
+.span {
   color: #ff8d1a;
+}
+.load{
+  background: #00b5ce;
+  border: none ;
+  margin-right: 1rem;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.5rem;
+
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+.share {
+  background: #ff8d1a;
+  border: none ;
+  margin-right: 1rem;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.5rem;
+
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+.xml{
+  width: 70%;
+  background-color: white;
+  color: black;
+  margin: 1rem;
+  padding: .5rem;
+  overflow-y: scroll;
+  white-space: nowrap;
 }

@@ -2,6 +2,9 @@
   height: calc(100vh - 114px);
 }
 .main {
+  height: 85vh;
+  width: 100vw;
+  margin-top: 10px;
   z-index: 0;
   display: flex;
   justify-content: space-evenly;

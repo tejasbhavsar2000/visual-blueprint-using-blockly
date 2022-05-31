@@ -1,10 +1,19 @@
 .copy {
   background: #dfdfdf;
+  color: rgb(0, 0, 0);
   border-radius: 0.6em;
+  width: fit-content;
+  height: 2rem;
+  margin: 0.5rem;
   opacity: 40%;
+}
+.copy:hover{
+  cursor: pointer;
+  background-color: rgb(141, 137, 137);
 }
 .div {
   display: flex;
+  
   justify-content: flex-end;
   margin: 0;
 }
