@@ -4,7 +4,9 @@ import Styles from "./Modal.module.css";
 const Modal = ({ children, handleShow }) => {
   return (
     <Backdrop handleShow={handleShow}>
-      <div className={Styles.modal}>{children}</div>
+      <div onClick={(e) => e.stopPropagation()} className={Styles.modal}>
+        {children}
+      </div>
     </Backdrop>
   );
 };

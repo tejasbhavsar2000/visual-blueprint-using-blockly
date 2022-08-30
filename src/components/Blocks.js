@@ -6,7 +6,7 @@ import { store } from "./StateProvider";
 import Styles from "../styles/Blocks.module.css";
 export default function Blocks() {
   const { dispatch } = useContext(store);
-  const data = () => localStorage.getItem("initialxml");
+
   const toolboxCategories = [
     {
       name: "Logic",
@@ -196,7 +196,6 @@ export default function Blocks() {
   function workspaceDidChange(workspace) {
     const newXml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
     dispatch({ type: "SET_XML", payload: newXml });
-    localStorage.setItem("initialxml", newXml);
 
     const JavascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
 
@@ -211,7 +210,6 @@ export default function Blocks() {
     <div className={Styles.canvas}>
       <ReactBlockly
         toolboxCategories={toolboxCategories}
-        initialXml={data}
         wrapperDivClassName="fill-height"
         workspaceConfiguration={{
           grid: {
