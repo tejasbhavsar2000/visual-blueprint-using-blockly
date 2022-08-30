@@ -8,7 +8,6 @@ export default function Copy() {
         id="copy"
         onClick={() => {
           const copyText = document.getElementsByName("code");
-          console.log(copyText);
           navigator.clipboard.writeText(copyText[0].outerText);
           var copy = document.getElementById("copy");
           copy.textContent = `Copied!`;
